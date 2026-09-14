@@ -102,7 +102,11 @@ export default defineConfig({
     chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
-        manualChunks: { gsap: ['gsap'] },
+        manualChunks(id) {
+          if (id.includes('node_modules/gsap')) {
+            return 'gsap';
+          }
+        },
       },
     },
   },
