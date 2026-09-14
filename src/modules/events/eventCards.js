@@ -13,7 +13,11 @@ export function initEventCards() {
   const gridEl = eventsSection.querySelector('.events-grid');
   if (!gridEl) return;
 
-  // ── Insert filter bar after section-header ──
+  // Active filter state
+  let currentCategory = 'all';
+  let currentSubCategory = 'all';
+
+  // ── 1. Top-Level Filter Bar ──
   const filterBar = document.createElement('div');
   filterBar.className = 'event-filter-bar';
   filterBar.innerHTML = `
@@ -29,9 +33,42 @@ export function initEventCards() {
   `;
   headerEl.after(filterBar);
 
+  // ── 2. Technical Secondary Sub-Filter Bar ──
+  const techEvents = eventsData.filter(e => e.category === 'technical');
+  const codingCount = techEvents.filter(e => e.isCoding).length;
+  const otherTechCount = techEvents.filter(e => !e.isCoding).length;
+
+  const subfilterBar = document.createElement('div');
+  subfilterBar.className = 'event-subfilter-bar hidden';
+  subfilterBar.id = 'technical-subfilters';
+  subfilterBar.innerHTML = `
+    <button class="subfilter-btn active" data-subfilter="all">
+      ALL TECHNICAL <span class="subfilter-count">${techEvents.length}</span>
+    </button>
+    <button class="subfilter-btn subfilter-btn-coding" data-subfilter="coding">
+      &lt;/&gt; CODING <span class="subfilter-count">${codingCount}</span>
+    </button>
+    <button class="subfilter-btn" data-subfilter="other">
+      OTHER TECHNICAL <span class="subfilter-count">${otherTechCount}</span>
+    </button>
+  `;
+  filterBar.after(subfilterBar);
+
+  function getBadgeLabel(event) {
+    if (event.category === 'non-technical') return 'NON-TECHNICAL';
+    if (event.isCoding) return 'CODING';
+    return 'TECHNICAL';
+  }
+
+  function getBadgeClass(event) {
+    if (event.category === 'non-technical') return 'non-technical';
+    if (event.isCoding) return 'coding';
+    return 'technical';
+  }
+
   // ── Render event cards ──
-  function renderCards(category) {
-    const events = getEventsByCategory(category);
+  function renderCards(category, subCategory) {
+    const events = getEventsByCategory(category, subCategory);
     gridEl.innerHTML = '';
 
     events.forEach((event, i) => {
@@ -39,10 +76,10 @@ export function initEventCards() {
       card.className = 'p2-card event-card';
       card.tabIndex = 0;
       card.dataset.eventId = event.id;
-      card.style.animationDelay = `${i * 0.06}s`;
+      card.style.animationDelay = `${i * 0.05}s`;
 
       card.innerHTML = `
-        <div class="event-badge ${event.category}">${event.category === 'technical' ? 'TECHNICAL' : 'NON-TECHNICAL'}</div>
+        <div class="event-badge ${getBadgeClass(event)}">${getBadgeLabel(event)}</div>
         <h3 class="card-title">${event.title.toUpperCase()}</h3>
         <p class="card-body">${event.description}</p>
         <div class="event-meta">
@@ -87,15 +124,40 @@ export function initEventCards() {
     });
   }
 
-  // ── Filter button logic ──
+  // ── Top-level filter button logic ──
   filterBar.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      renderCards(btn.dataset.filter);
+
+      currentCategory = btn.dataset.filter;
+      currentSubCategory = 'all';
+
+      // Show subfilters only for TECHNICAL category
+      if (currentCategory === 'technical') {
+        subfilterBar.classList.remove('hidden');
+        // Reset subfilter buttons to ALL TECHNICAL
+        subfilterBar.querySelectorAll('.subfilter-btn').forEach(s => s.classList.remove('active'));
+        subfilterBar.querySelector('[data-subfilter="all"]')?.classList.add('active');
+      } else {
+        subfilterBar.classList.add('hidden');
+      }
+
+      renderCards(currentCategory, currentSubCategory);
+    });
+  });
+
+  // ── Technical Sub-filter button logic ──
+  subfilterBar.querySelectorAll('.subfilter-btn').forEach(sBtn => {
+    sBtn.addEventListener('click', () => {
+      subfilterBar.querySelectorAll('.subfilter-btn').forEach(b => b.classList.remove('active'));
+      sBtn.classList.add('active');
+
+      currentSubCategory = sBtn.dataset.subfilter;
+      renderCards(currentCategory, currentSubCategory);
     });
   });
 
   // Initial render
-  renderCards('all');
+  renderCards('all', 'all');
 }
