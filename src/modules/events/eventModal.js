@@ -91,8 +91,18 @@ export function openEventModal(eventId) {
 
   // Populate content
   const badge = modalEl.querySelector('.modal-badge');
-  const badgeLabel = event.category === 'non-technical' ? 'NON-TECHNICAL' : (event.isCoding ? 'CODING' : 'TECHNICAL');
-  const badgeClass = event.category === 'non-technical' ? 'non-technical' : (event.isCoding ? 'coding' : 'technical');
+  let badgeLabel = 'TECHNICAL';
+  let badgeClass = 'technical';
+  if (event.category === 'presentation') {
+    badgeLabel = 'PRESENTATION';
+    badgeClass = 'presentation';
+  } else if (event.category === 'non-technical') {
+    badgeLabel = 'NON-TECHNICAL';
+    badgeClass = 'non-technical';
+  } else if (event.category === 'coding' || event.isCoding) {
+    badgeLabel = 'CODING';
+    badgeClass = 'coding';
+  }
   badge.textContent = badgeLabel;
   badge.className = `modal-badge ${badgeClass}`;
 

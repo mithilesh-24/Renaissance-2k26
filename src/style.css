@@ -1213,9 +1213,16 @@ img {
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.25);
 }
 
+.event-badge.presentation {
+  background: rgba(230, 36, 41, 0.3);
+  color: #FF5555;
+  border-color: rgba(230, 36, 41, 0.7);
+  box-shadow: 0 0 10px rgba(230, 36, 41, 0.3);
+}
+
 .event-badge.technical {
   background: rgba(177, 19, 19, 0.3);
-  color: #FF5555;
+  color: #FF7777;
   border-color: rgba(177, 19, 19, 0.6);
 }
 
@@ -1659,9 +1666,16 @@ img {
   border: 1px solid rgba(255,255,255,0.2);
 }
 
+.modal-badge.presentation {
+  background: rgba(230, 36, 41, 0.3);
+  color: #FF5555;
+  border-color: rgba(230, 36, 41, 0.7);
+  box-shadow: 0 0 10px rgba(230, 36, 41, 0.3);
+}
+
 .modal-badge.technical {
   background: rgba(177, 19, 19, 0.3);
-  color: #FF5555;
+  color: #FF7777;
   border-color: rgba(177, 19, 19, 0.6);
 }
 

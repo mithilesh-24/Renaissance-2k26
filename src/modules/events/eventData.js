@@ -4,11 +4,11 @@
  */
 
 export const eventsData = [
-  // ═══════════ TECHNICAL EVENTS (8) ═══════════
+  // ═══════════ PRESENTATION EVENTS (2) ═══════════
   {
     id: 'paper-presentation',
     title: 'Paper Presentation',
-    category: 'technical',
+    category: 'presentation',
     icon: '📄',
     poster: '/posters/technical/paper-presentation.jpg',
     time: '08:45 AM – 10:45 AM',
@@ -31,7 +31,7 @@ export const eventsData = [
   {
     id: 'project-presentation',
     title: 'Project Presentation',
-    category: 'technical',
+    category: 'presentation',
     icon: '🔧',
     poster: '/posters/technical/project-presentation.jpg',
     time: '08:45 AM – 10:25 AM',
@@ -291,6 +291,9 @@ export function getEventById(id) {
 
 export function getEventsByCategory(category = 'all') {
   if (!category || category === 'all') return eventsData;
+  if (category === 'presentation') {
+    return eventsData.filter(e => e.category === 'presentation');
+  }
   if (category === 'coding') {
     return eventsData.filter(e => e.category === 'coding' || e.isCoding);
   }

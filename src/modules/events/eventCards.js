@@ -1,7 +1,7 @@
 /**
  * eventCards.js — Dynamic event card renderer with Spider-Verse filter tabs.
  * Renders all 11 events from eventData.js into #events-grid.
- * Primary filter tabs: ALL (11) | TECHNICAL (6) | CODING (2) | NON-TECHNICAL (3)
+ * Primary filter tabs: ALL (11) | PRESENTATION (2) | TECHNICAL (4) | CODING (2) | NON-TECHNICAL (3)
  */
 import { eventsData, getEventsByCategory } from './eventData.js';
 import { openEventModal } from './eventModal.js';
@@ -15,6 +15,7 @@ export function initEventCards() {
   if (!gridEl) return;
 
   // Calculate counts
+  const presCount = eventsData.filter(e => e.category === 'presentation').length;
   const techCount = eventsData.filter(e => e.category === 'technical' && !e.isCoding).length;
   const codingCount = eventsData.filter(e => e.category === 'coding' || e.isCoding).length;
   const nonTechCount = eventsData.filter(e => e.category === 'non-technical').length;
@@ -25,6 +26,9 @@ export function initEventCards() {
   filterBar.innerHTML = `
     <button class="filter-btn active" data-filter="all">
       ALL <span class="filter-count">${eventsData.length}</span>
+    </button>
+    <button class="filter-btn" data-filter="presentation">
+      PRESENTATION <span class="filter-count">${presCount}</span>
     </button>
     <button class="filter-btn" data-filter="technical">
       TECHNICAL <span class="filter-count">${techCount}</span>
@@ -39,12 +43,14 @@ export function initEventCards() {
   headerEl.after(filterBar);
 
   function getBadgeLabel(event) {
+    if (event.category === 'presentation') return 'PRESENTATION';
     if (event.category === 'non-technical') return 'NON-TECHNICAL';
     if (event.category === 'coding' || event.isCoding) return 'CODING';
     return 'TECHNICAL';
   }
 
   function getBadgeClass(event) {
+    if (event.category === 'presentation') return 'presentation';
     if (event.category === 'non-technical') return 'non-technical';
     if (event.category === 'coding' || event.isCoding) return 'coding';
     return 'technical';
