@@ -1059,12 +1059,12 @@ img {
     0 15px 40px rgba(0, 0, 0, 0.9) !important;
 }
 
-/* ── About Grid Layout (1 col mobile, 2/3 cols desktop) ── */
+/* ── About Grid Layout (2 cols desktop: Row 1 KEC+CSE, Row 2 CSEA+CCC, Row 3 Renaissance) ── */
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: clamp(1.2rem, 3vw, 2.2rem);
-  max-width: 1280px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -1171,10 +1171,18 @@ img {
   transition: transform 0.3s ease;
 }
 
-/* Featured 5th Card spanning full width on desktop */
-@media (min-width: 900px) {
-  .about-card.featured-card {
-    grid-column: span 2;
+/* Featured 5th Card (About Renaissance) spanning full width / 3rd row */
+.about-card.featured-card {
+  grid-column: 1 / -1;
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 }
 
