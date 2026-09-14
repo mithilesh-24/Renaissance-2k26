@@ -84,10 +84,17 @@ export function openEventModal(eventId) {
 
   if (!modalEl) createModalDOM();
 
+  // Reset scroll position to top for mobile & desktop
+  modalEl.scrollTop = 0;
+  const detailsEl = modalEl.querySelector('.modal-details');
+  if (detailsEl) detailsEl.scrollTop = 0;
+
   // Populate content
   const badge = modalEl.querySelector('.modal-badge');
-  badge.textContent = event.category === 'technical' ? 'TECHNICAL' : 'NON-TECHNICAL';
-  badge.className = `modal-badge ${event.category}`;
+  const badgeLabel = event.category === 'non-technical' ? 'NON-TECHNICAL' : (event.isCoding ? 'CODING' : 'TECHNICAL');
+  const badgeClass = event.category === 'non-technical' ? 'non-technical' : (event.isCoding ? 'coding' : 'technical');
+  badge.textContent = badgeLabel;
+  badge.className = `modal-badge ${badgeClass}`;
 
   modalEl.querySelector('.modal-title').textContent = event.title.toUpperCase();
   modalEl.querySelector('.modal-desc').textContent = event.description;
