@@ -1734,10 +1734,107 @@ img {
   }
 }
 
+/* ═══════════════════════════════════════════════════════
+   EVENT COORDINATORS SECTION
+═══════════════════════════════════════════════════════ */
+.coordinators-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.2rem);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.coordinator-card {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9rem;
+  position: relative;
+}
+
+.coordinator-badge {
+  font-family: var(--font-comic);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  background: rgba(177, 19, 19, 0.25);
+  color: var(--gold);
+  border: 1px solid rgba(177, 19, 19, 0.6);
+  text-transform: uppercase;
+}
+
+.coordinator-name {
+  font-family: var(--font-comic);
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  text-shadow: 2px 2px 0px #000000;
+  margin: 0;
+}
+
+.coordinator-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-ui);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--gold);
+  text-decoration: none;
+  padding: 0.55rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  margin-top: auto;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: center;
+}
+
+.coordinator-phone:hover {
+  background: var(--red);
+  color: #FFFFFF;
+  border-color: var(--red);
+  box-shadow: 0 0 15px rgba(177, 19, 19, 0.5);
+  transform: translateY(-2px);
+}
+
+.coordinator-phone .phone-icon {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.coordinator-phone:hover .phone-icon {
+  transform: scale(1.15) rotate(-10deg);
+}
+
+@media (max-width: 992px) {
+  .coordinators-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .coordinators-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .coordinator-card {
+    padding: 1.4rem;
+  }
+}
+
 /* ── Scroll margin for anchor navigation ── */
 #about,
 #events,
-#contact {
+#coordinators,
+#contact,
+#main-footer {
   scroll-margin-top: 80px;
 }
+
 
