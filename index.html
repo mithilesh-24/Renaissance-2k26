@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Renaissance 2K26 — Spider-Man themed college symposium. Where gravity is just a suggestion." />
+  <meta property="og:title" content="RENAISSANCE 2K26 | Spider-Man Symposium" />
+  <title>RENAISSANCE 2K26 | Symposium</title>
+
+  <!-- Google Fonts: Bangers (comic headers) + Inter (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Vite Entry -->
+  <script type="module" src="/src/main.js"></script>
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       ① LOADING SCREEN
+  ══════════════════════════════════════════════════ -->
+  <div id="loader" role="status" aria-live="polite" aria-label="Loading Renaissance 2K26">
+
+    <!-- ── Loader Video ── -->
+    <div id="loader-video-wrap">
+      <video id="loader-video" src="/Phase 1/upscaled-video (1).mp4" autoplay muted loop playsinline preload="auto"
+        aria-hidden="true"></video>
+    </div>
+    <!-- ── end loader video ── -->
+
+
+    <div id="loader-bar-track" aria-hidden="true">
+      <div id="loader-bar-fill"></div>
+    </div>
+    <div id="loader-percent" aria-hidden="true">0%</div>
+    <div id="loader-label" aria-hidden="true">Awakening Spidey Sense</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       ② PRESENTS INTRO
+  ══════════════════════════════════════════════════ -->
+  <div id="intro" aria-label="Symposium Introduction">
+
+    <!-- Row 1: Two organiser club logos with gold divider -->
+    <div class="intro-logos">
+
+      <!-- CSE Coding Club -->
+      <div class="intro-logo-box club-cse">
+        <img src="/Phase 1/CCC.png" alt="CSE Coding Club Logo" draggable="false" />
+        <span class="club-label">CSE Coding Club</span>
+      </div>
+
+      <!-- Vertical gold rule -->
+      <div class="intro-logos-divider" aria-hidden="true"></div>
+
+      <!-- CSEA -->
+      <div class="intro-logo-box club-csea">
+        <img src="/Phase 1/Association.png" alt="CSEA — We Can So We Will" draggable="false" />
+        <span class="club-label">CSE Association</span>
+      </div>
+
+    </div>
+
+    <!-- PRESENTS label -->
+    <div id="presents-text" aria-label="Presents">PRESENTS</div>
+
+    <!-- Thin gold divider -->
+    <div class="intro-divider" aria-hidden="true"></div>
+
+    <!-- Event logo: Renaissance 2K26 -->
+    <img id="intro-event-logo" class="intro-event-logo" src="/Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png"
+      alt="Renaissance 2K26" draggable="false" />
+
+    <!-- Scroll prompt -->
+    <div id="scroll-prompt" aria-label="Scroll down to enter">
+      <span>Scroll to Enter</span>
+      <div class="scroll-chevron" aria-hidden="true"></div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       ③ CINEMATIC SCROLL SEQUENCE + ④ HERO REVEAL
+  ══════════════════════════════════════════════════ -->
+  <div id="cinematic-wrapper">
+    <div id="cinematic-sticky">
+
+      <!-- ① Main Navbar / Menu Bar -->
+      <header id="main-navbar" aria-label="Main Navigation">
+        <div class="nav-brand">
+          <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26 Logo" class="nav-logo" />
+        </div>
+        <nav class="nav-links">
+          <a href="#intro" class="nav-item">Home</a>
+          <a href="#about" class="nav-item">About Us</a>
+          <a href="#events" class="nav-item">Events</a>
+          <a href="#contact" class="nav-item">Contact Us</a>
+        </nav>
+      </header>
+
+      <!-- HUD corner brackets -->
+      <div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
+      <div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
+      <div class="hud-corner hud-corner--bl" aria-hidden="true"></div>
+      <div class="hud-corner hud-corner--br" aria-hidden="true"></div>
+
+      <!-- Scanning line -->
+      <div id="scan-line" aria-hidden="true"></div>
+
+      <!-- Video container -->
+      <div id="video-container">
+        <video id="hero-video" muted playsinline preload="auto" aria-label="Spider-Man Anti-Gravity Cinematic">
+          <source src="/Phase_1/new_upscale.mp4" type="video/mp4" />
+          <source src="/Phase 1/new upscale.mp4" type="video/mp4" />
+          <source src="/Phase 1/upscaled-video.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Blur overlay -->
+        <div id="video-blur-overlay" aria-hidden="true"></div>
+
+        <!-- Decorative web SVG lines -->
+        <svg id="web-lines-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"
+          xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="wg1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#B11313" stop-opacity="0" />
+              <stop offset="50%" stop-color="#B11313" stop-opacity="0.4" />
+              <stop offset="100%" stop-color="#B11313" stop-opacity="0" />
+            </linearGradient>
+            <linearGradient id="wg2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2B3784" stop-opacity="0" />
+              <stop offset="50%" stop-color="#2B3784" stop-opacity="0.3" />
+              <stop offset="100%" stop-color="#2B3784" stop-opacity="0" />
+            </linearGradient>
+          </defs>
+          <path d="M0,150 Q360,80 720,200 T1440,150" stroke="url(#wg1)" stroke-width="1.5" fill="none" />
+          <path d="M0,400 Q480,300 960,450 T1440,380" stroke="url(#wg2)" stroke-width="1" fill="none" />
+          <path d="M720,-20 Q820,300 780,600 T720,920" stroke="url(#wg1)" stroke-width="0.8" fill="none" />
+          <path d="M100,-20 Q250,350 180,700 T100,920" stroke="url(#wg2)" stroke-width="0.6" fill="none" />
+          <path d="M1340,-20 Q1180,350 1260,700 T1340,920" stroke="url(#wg1)" stroke-width="0.6" fill="none" />
+        </svg>
+      </div>
+
+      <!-- ④ Hero Content (Logo + Countdown) -->
+      <div id="hero-logo-wrap" aria-label="Renaissance 2K26 Main Logo">
+        <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26" draggable="false" />
+      </div>
+
+      <!-- ② Event Countdown Section -->
+      <section id="event-countdown-section" aria-label="Event Registration Countdown">
+        <h2 class="countdown-heading">TIME LEFT TO REGISTER</h2>
+
+        <div class="countdown-cards">
+          <div class="cd-card">
+            <span id="cd-days" class="cd-value">00</span>
+            <span class="cd-label">DAYS</span>
+          </div>
+          <div class="cd-card">
+            <span id="cd-hrs" class="cd-value">00</span>
+            <span class="cd-label">HRS</span>
+          </div>
+          <div class="cd-card">
+            <span id="cd-mins" class="cd-value">00</span>
+            <span class="cd-label">MINs</span>
+          </div>
+          <div class="cd-card">
+            <span id="cd-sec" class="cd-value">00</span>
+            <span class="cd-label">SEC</span>
+          </div>
+        </div>
+
+        <div class="countdown-date-banner">
+          <h3 class="event-date-main">21ST SEPTEMBER 2026</h3>
+          <p class="event-date-sub">LAST DATE TO REGISTER: 19TH SEPTEMBER 2026</p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       PHASE 2: ABOUT US SECTION
+  ══════════════════════════════════════════════════ -->
+  <section id="about" class="phase2-section">
+    <div class="section-header">
+      <h2 class="section-title">ABOUT US</h2>
+      <p class="section-subtitle">DISCOVER THE LEGACY & INNOVATION BEHIND RENAISSANCE 2K26</p>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="about-grid">
+      <!-- Card 1: About KEC -->
+      <article class="p2-card about-card" tabindex="0">
+        <div class="card-image-wrap">
+          <img src="Phase 2/college logo.jpg" alt="Kongu Engineering College Logo" class="card-img" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">About KEC</h3>
+          <p class="card-body truncated">
+            Kongu Engineering College, affiliated to Anna University, is located in Perundurai, Erode. It is accredited with an 'A' grade by National Assessment Accreditation Council. Over the past 40 years, the instituton with its good infrastructure facility and excellent academic records has emerged as a center of excellence.The college with its quality education and peaceful environment provides continuous improvement and confidence for the students to face the real world challenges and mould their future.
+          </p>
+          <button class="read-more-btn" aria-expanded="false">Read More <span class="btn-arrow">↓</span></button>
+        </div>
+      </article>
+
+      <!-- Card 2: About CSE -->
+      <article class="p2-card about-card" tabindex="0">
+        <div class="card-image-wrap">
+          <img src="Phase 2/it park.jpg" alt="CSE IT Park Building" class="card-img" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">About CSE</h3>
+          <p class="card-body truncated">
+            The Department of Computer Science and Engineering, holding nearly 700 students, has been successfully achieving its goal of identifying and appreciating the unique talents. The department is constantly striving to provide the best acadimecs to empower the practical knowledge of students so as to meet the changing industrial needs. The department brings out world class professionals in the field of computer science. After getting the autonomous status, the syllabus was made more advanced so that students came to know more about the latest cutting-edge technologies.
+          </p>
+          <button class="read-more-btn" aria-expanded="false">Read More <span class="btn-arrow">↓</span></button>
+        </div>
+      </article>
+
+      <!-- Card 3: About CSEA -->
+      <article class="p2-card about-card" tabindex="0">
+        <div class="card-image-wrap">
+          <img src="Phase 2/Association.png" alt="CSE Association Logo" class="card-img logo-img" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">About CSEA</h3>
+          <p class="card-body truncated">
+            The Computer Science and Engineering Association (CSEA) is a vibrant student-driven body that forms the backbone of academic, technical, and cultural activities in the CSE department. It serves as a dynamic forum where students come together to explore, learn, and innovate beyond the classroom. By organizing guest lectures, technical talks, workshops, hackathons, symposium, and cultural events, CSEA provides ample opportunities to sharpen technical knowledge, foster leadership, and nurture creativity. Acting as a bridge between industry, and students, the association keeps members connected with emerging technologies while encouraging collaboration, problem-solving, and holistic growth. With its diverse initiatives, CSEA not only cultivates professional excellence but also builds a strong sense of community, preparing students to meet industry expectations and contribute meaningfully to society.
+          </p>
+          <button class="read-more-btn" aria-expanded="false">Read More <span class="btn-arrow">↓</span></button>
+        </div>
+      </article>
+
+      <!-- Card 4: About CCC -->
+      <article class="p2-card about-card" tabindex="0">
+        <div class="card-image-wrap">
+          <img src="Phase 2/CCC.png" alt="Coding & Computing Club Logo" class="card-img logo-img" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">About CCC</h3>
+          <p class="card-body truncated">
+            The CSE Coding Club is a vibrant community of coding enthusiasts in the Computer Science and Engineering department. By organizing coding events, hackathons, workshops, and mock drives, the club empowers students to sharpen their coding skills, think creatively, and tackle real-world problems. These activities foster a spirit of innovation, teamwork, and healthy competition among members. The CSE Coding Club is an ideal platform for students to learn from peers, get hands-on experience with cutting-edge technologies, and build a strong portfolio of coding projects.
+          </p>
+          <button class="read-more-btn" aria-expanded="false">Read More <span class="btn-arrow">↓</span></button>
+        </div>
+      </article>
+
+      <!-- Card 5: About Renaissance -->
+      <article class="p2-card about-card featured-card" tabindex="0">
+        <div class="card-image-wrap">
+          <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26 Emblem" class="card-img logo-img" />
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">About Renaissance</h3>
+          <p class="card-body truncated">
+            Renaissance 2K26 is an intra-departmental symposium organized by the Computer Science and Engineering Association (CSEA) in collaboration with the CSE Coding Club. It is a platform designed to ignite curiosity, creativity, and innovation among budding computer engineers. The symposium features a blend of technical and non-technical events, including paper presentations, coding challenges, workshops, and fun activities, encouraging students to showcase their talent and explore emerging domains in technology. By fostering a spirit of healthy competition, teamwork, and knowledge-sharing, Renaissance 2K26 not only enhances technical proficiency but also enriches the overall learning experience. It stands as a celebration of ideas, skills, and collaboration, reflecting the vibrant culture of the CSE department.
+          </p>
+          <button class="read-more-btn" aria-expanded="false">Read More <span class="btn-arrow">↓</span></button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       PHASE 2: EVENTS SECTION
+  ══════════════════════════════════════════════════ -->
+  <section id="events" class="phase2-section">
+    <div class="section-header">
+      <h2 class="section-title">SYMPOSIUM EVENTS</h2>
+      <p class="section-subtitle">UNLEASH YOUR SPIDER-SENSE ACROSS TECHNICAL & NON-TECHNICAL CHALLENGES</p>
+      <div class="header-line"></div>
+    </div>
+
+    <div class="events-grid">
+      <!-- Event 1: Paper Presentation -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge technical">TECHNICAL</div>
+        <div class="event-icon">📄</div>
+        <h3 class="card-title">PAPER PRESENTATION</h3>
+        <p class="card-body">
+          Present your cutting-edge technical research, innovative web technologies, and AI breakthroughs to expert judges.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 09:30 AM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+
+      <!-- Event 2: Code Odyssey -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge technical">TECHNICAL</div>
+        <div class="event-icon">💻</div>
+        <h3 class="card-title">CODE ODYSSEY</h3>
+        <p class="card-body">
+          Race against time in algorithmic problem-solving, bug hunting, and real-time coding sprints.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 11:00 AM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+
+      <!-- Event 3: Web Weavers -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge technical">TECHNICAL</div>
+        <div class="event-icon">🕸️</div>
+        <h3 class="card-title">WEB WEAVERS</h3>
+        <p class="card-body">
+          Craft high-performance, dynamic UI/UX web designs using modern CSS animations and glassmorphism.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 01:30 PM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+
+      <!-- Event 4: Quiz-O-Mania -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge non-technical">NON-TECHNICAL</div>
+        <div class="event-icon">🧠</div>
+        <h3 class="card-title">QUIZ-O-MANIA</h3>
+        <p class="card-body">
+          Test your wits across tech trivia, pop culture, Spider-Man lore, and rapid-fire buzzer rounds.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 10:30 AM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+
+      <!-- Event 5: Spider-Sense Gaming -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge non-technical">NON-TECHNICAL</div>
+        <div class="event-icon">🎮</div>
+        <h3 class="card-title">SPIDER-SENSE GAMING</h3>
+        <p class="card-body">
+          Compete in high-octane LAN battles and esports tournaments to claim the ultimate championship trophy.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 02:00 PM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+
+      <!-- Event 6: Mystery Marvel -->
+      <article class="p2-card event-card" tabindex="0">
+        <div class="event-badge non-technical">NON-TECHNICAL</div>
+        <div class="event-icon">🎁</div>
+        <h3 class="card-title">MYSTERY MARVEL</h3>
+        <p class="card-body">
+          A surprise team strategy and fun puzzle challenge designed to test your collaboration under pressure.
+        </p>
+        <div class="event-footer">
+          <span class="event-time">⏰ 03:30 PM</span>
+          <button class="event-btn">Register Event</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER SECTION
+  ══════════════════════════════════════════════════ -->
+  <footer id="main-footer">
+    <div class="footer-content">
+      <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26" class="footer-logo" />
+      <p class="footer-text">RENAISSANCE 2K26 · DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</p>
+      <p class="footer-copy">KONGU ENGINEERING COLLEGE · ERODE, TAMIL NADU</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
