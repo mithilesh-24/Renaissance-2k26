@@ -24,44 +24,53 @@ function createModalDOM() {
     <button class="modal-close" aria-label="Close modal">&times;</button>
     <div class="modal-body">
       <div class="modal-details">
-        <div class="modal-badge-wrap">
-          <span class="modal-badge"></span>
-        </div>
-        <h2 class="modal-title"></h2>
-        <p class="modal-desc"></p>
-
-        <div class="modal-meta-grid">
-          <div class="modal-meta-item">
-            <span class="meta-label">📅 DATE</span>
-            <span class="meta-value" id="modal-date"></span>
+        <div class="modal-scroll-area">
+          <div class="modal-badge-wrap">
+            <span class="modal-badge"></span>
           </div>
-          <div class="modal-meta-item">
-            <span class="meta-label">⏰ TIME</span>
-            <span class="meta-value" id="modal-time"></span>
+          <h2 class="modal-title"></h2>
+          <p class="modal-desc"></p>
+
+          <div class="modal-meta-grid">
+            <div class="modal-meta-item">
+              <span class="meta-label">📅 DATE</span>
+              <span class="meta-value" id="modal-date"></span>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-label">⏰ TIME</span>
+              <span class="meta-value" id="modal-time"></span>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-label">👥 TEAM SIZE</span>
+              <span class="meta-value" id="modal-team"></span>
+            </div>
+            <div class="modal-meta-item">
+              <span class="meta-label">🎓 ELIGIBILITY</span>
+              <span class="meta-value" id="modal-eligibility"></span>
+            </div>
           </div>
-          <div class="modal-meta-item">
-            <span class="meta-label">👥 TEAM SIZE</span>
-            <span class="meta-value" id="modal-team"></span>
+
+          <div class="modal-section">
+            <h4 class="modal-section-heading">🕸️ Rounds</h4>
+            <ul class="modal-rounds"></ul>
           </div>
-          <div class="modal-meta-item">
-            <span class="meta-label">🎓 ELIGIBILITY</span>
-            <span class="meta-value" id="modal-eligibility"></span>
+
+          <div class="modal-section">
+            <h4 class="modal-section-heading">📋 Rules</h4>
+            <ul class="modal-rules"></ul>
+          </div>
+
+          <div class="modal-section">
+            <h4 class="modal-section-heading">📞 Contacts</h4>
+            <div class="modal-contacts"></div>
           </div>
         </div>
 
-        <div class="modal-section">
-          <h4 class="modal-section-heading">🕸️ Rounds</h4>
-          <ul class="modal-rounds"></ul>
-        </div>
-
-        <div class="modal-section">
-          <h4 class="modal-section-heading">📋 Rules</h4>
-          <ul class="modal-rules"></ul>
-        </div>
-
-        <div class="modal-section">
-          <h4 class="modal-section-heading">📞 Contacts</h4>
-          <div class="modal-contacts"></div>
+        <div class="modal-action-wrap">
+          <a class="modal-register-btn" target="_blank" rel="noopener noreferrer">
+            <span>REGISTER FOR THIS EVENT</span>
+            <span class="btn-arrow">→</span>
+          </a>
         </div>
       </div>
 
@@ -88,6 +97,8 @@ export function openEventModal(eventId) {
   modalEl.scrollTop = 0;
   const detailsEl = modalEl.querySelector('.modal-details');
   if (detailsEl) detailsEl.scrollTop = 0;
+  const scrollArea = modalEl.querySelector('.modal-scroll-area');
+  if (scrollArea) scrollArea.scrollTop = 0;
 
   // Populate content
   const badge = modalEl.querySelector('.modal-badge');
@@ -130,6 +141,17 @@ export function openEventModal(eventId) {
       <a href="tel:${c.phone}" class="contact-phone">📱 ${c.phone}</a>
     </div>`
   ).join('');
+
+  // Register Button
+  const regBtn = modalEl.querySelector('.modal-register-btn');
+  if (regBtn) {
+    if (event.registerUrl && event.registerUrl !== '#') {
+      regBtn.href = event.registerUrl;
+      regBtn.style.display = 'inline-flex';
+    } else {
+      regBtn.style.display = 'none';
+    }
+  }
 
   // Poster
   modalEl.querySelector('.modal-poster-img').src = event.poster;

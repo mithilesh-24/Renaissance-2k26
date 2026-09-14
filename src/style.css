@@ -1643,18 +1643,29 @@ img {
 }
 
 .modal-details {
-  padding: 2.5rem 2rem;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   max-height: 90vh;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+
+.modal-scroll-area {
+  padding: 2.2rem 2rem 1.2rem;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
 }
 
-.modal-details::-webkit-scrollbar {
+.modal-scroll-area::-webkit-scrollbar {
   width: 5px;
 }
-.modal-details::-webkit-scrollbar-thumb {
+.modal-scroll-area::-webkit-scrollbar-thumb {
   background: rgba(177, 19, 19, 0.4);
   border-radius: 10px;
 }
@@ -1823,6 +1834,60 @@ img {
   color: var(--red-bright);
 }
 
+/* ── Modal Action / Fixed Register Button ── */
+.modal-action-wrap {
+  margin-top: 0;
+  padding: 1rem 2rem 1.4rem;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, rgba(14, 10, 12, 0.88) 0%, rgba(10, 10, 15, 0.98) 100%);
+  border-top: 1px solid rgba(177, 19, 19, 0.35);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.modal-register-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1.5rem;
+  background: linear-gradient(135deg, #E62429 0%, #B11313 100%);
+  color: #FFFFFF;
+  font-family: var(--font-comic);
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(230, 36, 41, 0.4), 3px 3px 0px #000000;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.modal-register-btn:hover {
+  background: linear-gradient(135deg, #FF3B3F 0%, #E62429 100%);
+  color: var(--gold);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 36, 41, 0.6), 4px 4px 0px #000000;
+}
+
+.modal-register-btn .btn-arrow {
+  font-size: 1.25rem;
+  transition: transform 0.25s ease;
+}
+
+.modal-register-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
 /* ── Modal Poster Panel ── */
 .modal-poster {
   position: relative;
@@ -1876,16 +1941,17 @@ img {
 @media (max-width: 768px) {
   .event-modal {
     width: min(95vw, 540px);
+    height: 88vh;
+    height: 88dvh;
     max-height: 88vh;
     max-height: 88dvh;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
+    overflow: hidden;
     border-radius: 14px;
+    display: flex;
+    flex-direction: column;
   }
 
   .event-modal.active {
@@ -1893,15 +1959,16 @@ img {
   }
 
   .modal-body {
-    grid-template-columns: 1fr;
-    height: auto;
-    max-height: none;
-    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 100%;
+    overflow: hidden;
   }
 
   .modal-poster {
-    max-height: 280px;
-    padding: 0.8rem;
+    max-height: 220px;
+    padding: 0.75rem;
     border-left: none;
     border-bottom: 1px solid rgba(177, 19, 19, 0.2);
     order: -1;
@@ -1909,14 +1976,26 @@ img {
   }
 
   .modal-poster-img {
-    max-height: 250px;
+    max-height: 200px;
     object-fit: contain;
   }
 
   .modal-details {
-    padding: 1.25rem 1rem;
+    flex: 1;
+    min-height: 0;
     max-height: none;
-    overflow-y: visible;
+    overflow: hidden;
+  }
+
+  .modal-scroll-area {
+    padding: 1.25rem 1rem 0.75rem;
+    gap: 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-action-wrap {
+    padding: 0.75rem 1rem 1rem;
   }
 
   .modal-close {
@@ -1936,13 +2015,33 @@ img {
 @media (max-width: 480px) {
   .event-modal {
     width: 95vw;
+    height: 90vh;
+    height: 90dvh;
     max-height: 90vh;
     max-height: 90dvh;
   }
 
-  .modal-details {
-    padding: 1rem 0.85rem;
-    gap: 1rem;
+  .modal-poster {
+    max-height: 180px;
+    padding: 0.5rem;
+  }
+
+  .modal-poster-img {
+    max-height: 165px;
+  }
+
+  .modal-scroll-area {
+    padding: 1rem 0.85rem 0.5rem;
+    gap: 0.85rem;
+  }
+
+  .modal-action-wrap {
+    padding: 0.6rem 0.85rem 0.85rem;
+  }
+
+  .modal-register-btn {
+    padding: 0.75rem 1.2rem;
+    font-size: 1rem;
   }
 
   .modal-meta-grid {
