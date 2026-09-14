@@ -15,6 +15,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: 'All Years',
+    registerUrl: 'https://docs.google.com/forms/u/4/d/e/1FAIpQLSdt_PYI-YJmLqtHwYNFyNdeUbfVRItFDe3Q4jdRb93xPyrK1Q/viewform?usp=publish-editor',
     description: 'Present your cutting-edge research on SIH / SDG problem statements or innovative engineering & tech topics. Standard PPT presentation with Q&A session evaluated by expert judges.',
     rounds: ['PPT Presentation', 'Q&A Session'],
     rules: [
@@ -37,6 +38,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '3 Members per team',
     eligibility: 'All Years',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdAV7I26HVlf0pAL5dvF6SAO5hIN1MaRtSmyx-UNn0LpEj-Gw/viewform',
     description: 'Showcase a working hardware/software model or prototype addressing SIH / SDG goals or novel tech solutions. Live demo and judges evaluation.',
     rounds: ['Live Demo', 'Judges Evaluation'],
     rules: [
@@ -53,12 +55,14 @@ export const eventsData = [
     id: 'code-relay',
     title: 'Code Relay',
     category: 'technical',
+    isCoding: true,
     icon: '⚡',
     poster: '/posters/technical/code-relay.jpg',
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '4 Members per team',
     eligibility: 'Open to CSE',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdOPYXvAmxeiNqvnSJnx_QOKysLkROwpUq_vNjbQXJBGs8I5A/viewform',
     description: 'Team UI development challenge. Replicate a designated dashboard UI in relay format — teammates switch coding seats at timed intervals.',
     rounds: ['UI Replication Relay'],
     rules: [
@@ -76,12 +80,14 @@ export const eventsData = [
     id: 'bid-2-code',
     title: 'Bid2Code',
     category: 'technical',
+    isCoding: true,
     icon: '🎯',
     poster: '/posters/technical/bid-2-code.jpg',
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: '3rd Year Students',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe2PSwrmAW_fWaqipv9F0Bc8fTrpkKYDBmY2SNGWSxlFu9GmQ/viewform',
     description: 'Tech puzzles to earn auction wallet points, then bid on coding problem statements and race to solve them. Strategy meets speed.',
     rounds: ['Round 1: Tech Puzzles & Points', 'Round 2: Auction Bidding & Coding'],
     rules: [
@@ -99,12 +105,14 @@ export const eventsData = [
     id: 'spin-and-sprint',
     title: 'Spin & Sprint',
     category: 'technical',
+    isCoding: true,
     icon: '🎡',
     poster: '/posters/technical/spin-and-sprint.jpg',
     time: '10:45 AM – 12:15 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: '2nd Year Students',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdOuvfffG2QcTdSO0KJfmvozQ74_9L9Uf2V0DsAUyL7gMTcLg/viewform',
     description: 'Spin the Time Wheel (12/15/18 mins) and the Question Wheel (logic & pattern programming). High-speed coding under tight, randomized time pressure.',
     rounds: ['Spin & Code Sprint'],
     rules: [
@@ -122,12 +130,14 @@ export const eventsData = [
     id: 'tech-rewind',
     title: 'Tech Rewind',
     category: 'technical',
+    isCoding: false,
     icon: '⏪',
     poster: '/posters/technical/tech-rewind.jpg',
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '2 – 3 Members per team',
     eligibility: 'All Years',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeIRIL78VTH_nHDzaRjvuOxIrhhZ7eRyEtvUmsHTRkPK7WgjA/viewform',
     description: 'Reimagine retro software, vintage UI/UX, and legacy computing systems using modern frontend/backend frameworks. A creative twist on tech history.',
     rounds: ['Retro Tech Reimagination'],
     rules: [
@@ -144,12 +154,14 @@ export const eventsData = [
     id: 'prompt-forge',
     title: 'Prompt Forge',
     category: 'technical',
+    isCoding: false,
     icon: '🤖',
     poster: '/posters/technical/prompt-forge.jpg',
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '3 Members per team',
     eligibility: '2nd & 3rd Year Students',
+    registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeHgBlP2D_4LDxxEKwBeS-ymfGAsKxScm_z8oEf6CrkKzCaeA/viewform',
     description: 'AI prompt engineering sprint — 4 rounds, 60 minutes total. Master generative text, reasoning, image synthesis, and automated task chains. 13 teams max (FCFS).',
     rounds: ['Round 1', 'Round 2', 'Round 3', 'Round 4'],
     rules: [
@@ -167,12 +179,14 @@ export const eventsData = [
     id: 'scramble-x',
     title: 'ScrambleX',
     category: 'technical',
+    isCoding: true,
     icon: '🧩',
     poster: '/posters/technical/scramble-x.jpg',
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: '2nd, 3rd & 4th Year Students',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSdcTjV0JEL0JHKGeT5gEysJZ2mJ7jujNjwE6hVBTgZp9PyzQw/viewform',
     description: 'Scrambled code reconstruction, syntax decoding, and algorithmic pattern solving. 1 round, 45 minutes of intense puzzle-solving.',
     rounds: ['Scrambled Code Challenge (45 mins)'],
     rules: [
@@ -192,12 +206,14 @@ export const eventsData = [
     id: 'vibe-rush',
     title: 'Vibe Rush',
     category: 'non-technical',
+    isCoding: false,
     icon: '🎵',
     poster: '/posters/non-technical/vibe-rush.jpg',
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSe-U2G2kby9NAbb8OYMkseKN0Ey1RIOdY4vlfYO34XOwbcYYg/viewform',
     description: 'Music, memory, and fun across 3 exciting rounds — guess songs from imagery, identify tracks from translated lyrics, and test your visual recall.',
     rounds: [
       'Round 1 (Connection): Guess the song from connected imagery cues',
@@ -218,12 +234,14 @@ export const eventsData = [
     id: 'doomsday',
     title: 'Doomsday: The Final Battle',
     category: 'non-technical',
+    isCoding: false,
     icon: '💀',
     poster: '/posters/non-technical/doomsday.jpg',
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '4 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://forms.gle/NVkRJiqcHHvXx4Mk9',
     description: 'Mystery vault challenge. Navigate 3 preliminary stages of puzzles, strategy, and teamwork, then compete in the Final Battle round (5 minutes per qualifying team).',
     rounds: [
       'Prelim Stage 1',
@@ -245,12 +263,14 @@ export const eventsData = [
     id: 'eye-spy',
     title: 'Eye Spy',
     category: 'non-technical',
+    isCoding: false,
     icon: '👁️',
     poster: '/posters/non-technical/eye-spy.jpg',
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '3 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLScKicuBD56iTEzb-_bdglovJtm-fEqCoMaoRE4I_GnKhL3xWQ/viewform',
     description: 'Test your visual acuity, pattern spotting, and observational memory across 2 intensive elimination rounds. Spot the change and outsmart your opponents.',
     rounds: ['Round 1: Observation', 'Round 2: Elimination'],
     rules: [
@@ -269,7 +289,17 @@ export function getEventById(id) {
   return eventsData.find(e => e.id === id) || null;
 }
 
-export function getEventsByCategory(category) {
+export function getEventsByCategory(category = 'all', subCategory = 'all') {
   if (!category || category === 'all') return eventsData;
+  if (category === 'technical') {
+    const techEvents = eventsData.filter(e => e.category === 'technical');
+    if (subCategory === 'coding') {
+      return techEvents.filter(e => e.isCoding);
+    }
+    if (subCategory === 'other') {
+      return techEvents.filter(e => !e.isCoding);
+    }
+    return techEvents;
+  }
   return eventsData.filter(e => e.category === category);
 }

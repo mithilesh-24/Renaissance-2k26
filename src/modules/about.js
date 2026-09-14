@@ -36,7 +36,7 @@ export function initPhase2Interactions() {
   cards.forEach((card, index) => {
     // Click / Tap neon glow toggle effect for cards
     card.addEventListener('click', (e) => {
-      if (e.target.closest('.read-more-btn') || e.target.closest('.event-btn')) return;
+      if (e.target.closest('.read-more-btn') || e.target.closest('.event-btn') || e.target.closest('.coordinator-phone')) return;
 
       if (card.classList.contains('about-card')) {
         const btn = card.querySelector('.read-more-btn');
@@ -44,7 +44,7 @@ export function initPhase2Interactions() {
         return;
       }
 
-      // Toggle between Gold and Blue neon glows for event cards
+      // Toggle between Gold and Blue neon glows for event/coordinator cards
       if (card.classList.contains('neon-glow-gold')) {
         card.classList.remove('neon-glow-gold');
         card.classList.add('neon-glow-blue');
@@ -84,6 +84,22 @@ export function initPhase2Interactions() {
     gsap.from(eventCards, {
       scrollTrigger: {
         trigger: '#events',
+        start: 'top 80%',
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.8,
+      stagger: 0.12,
+      ease: 'power3.out',
+    });
+  }
+
+  // GSAP ScrollTrigger stagger reveals for Coordinator cards
+  const coordinatorCards = document.querySelectorAll('.coordinator-card');
+  if (coordinatorCards.length > 0) {
+    gsap.from(coordinatorCards, {
+      scrollTrigger: {
+        trigger: '#coordinators',
         start: 'top 80%',
       },
       opacity: 0,
