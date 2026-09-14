@@ -73,8 +73,8 @@ export function initEventCards() {
         <h3 class="card-title">${event.title.toUpperCase()}</h3>
         <p class="card-body">${event.description}</p>
         <div class="event-meta">
-          <span class="meta-pill">⏰ ${event.time.split('–')[0].trim()}</span>
-          <span class="meta-pill">👥 ${event.teamSize.split(' ')[0]}${event.teamSize.includes('–') ? '-' + event.teamSize.split('–')[1].trim().split(' ')[0] : ''}</span>
+          <span class="meta-pill">⏰ ${(event.time.split(/[-–]/)[0] || '').trim()}</span>
+          <span class="meta-pill">👥 ${event.teamSize.split(' ')[0]}${event.teamSize.includes('-') || event.teamSize.includes('–') ? '-' + event.teamSize.split(/[-–]/)[1].trim().split(' ')[0] : ''}</span>
         </div>
         <div class="event-footer">
           <button class="event-btn explore-btn" data-event-id="${event.id}">Explore Event</button>
