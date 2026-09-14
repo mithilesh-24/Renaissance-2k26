@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.getElementById('hero-video');
   const loader = document.getElementById('loader');
 
-  // Initialize navigation, countdown timer ticker & Phase 2 interactions
+  // Initialize navigation, event cards, countdown timer ticker & Phase 2 interactions
   initNavigation();
   initCountdown();
-  initPhase2Interactions();
   initEventCards();
+  initPhase2Interactions();
 
   // Initial GSAP setup
   gsap.set('#hero-tagline', { y: 20 });

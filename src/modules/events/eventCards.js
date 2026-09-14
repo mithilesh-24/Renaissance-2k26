@@ -50,14 +50,14 @@ export function initEventCards() {
           <span class="meta-pill">👥 ${event.teamSize.split(' ')[0]}${event.teamSize.includes('–') ? '-' + event.teamSize.split('–')[1].trim().split(' ')[0] : ''}</span>
         </div>
         <div class="event-footer">
-          <span class="event-time">${event.time}</span>
-          <button class="event-btn" data-event-id="${event.id}">Explore Event</button>
+          <button class="event-btn explore-btn" data-event-id="${event.id}">Explore Event</button>
+          <a href="${event.registerUrl || '#'}" class="event-btn register-btn" data-event-id="${event.id}" ${event.registerUrl && event.registerUrl !== '#' ? 'target="_blank" rel="noopener noreferrer"' : ''}>Register</a>
         </div>
       `;
 
       // Click card to open modal
       card.addEventListener('click', (e) => {
-        if (e.target.closest('.event-btn')) return;
+        if (e.target.closest('.event-btn') || e.target.closest('a')) return;
         openEventModal(event.id);
       });
 
@@ -65,10 +65,24 @@ export function initEventCards() {
     });
 
     // Attach button click listeners
-    gridEl.querySelectorAll('.event-btn').forEach(btn => {
+    gridEl.querySelectorAll('.explore-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         openEventModal(btn.dataset.eventId);
+      });
+    });
+
+    gridEl.querySelectorAll('.register-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const eventId = btn.dataset.eventId;
+        const currentEvent = getEventsByCategory('all').find(ev => ev.id === eventId);
+        if (!currentEvent || !currentEvent.registerUrl || currentEvent.registerUrl === '#') {
+          e.preventDefault();
+          e.stopPropagation();
+          openEventModal(eventId);
+        } else {
+          e.stopPropagation();
+        }
       });
     });
   }
