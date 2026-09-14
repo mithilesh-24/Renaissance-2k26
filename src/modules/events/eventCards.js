@@ -1,6 +1,7 @@
 /**
  * eventCards.js — Dynamic event card renderer with Spider-Verse filter tabs.
  * Renders all 11 events from eventData.js into #events-grid.
+ * Primary filter tabs: ALL (11) | TECHNICAL (6) | CODING (2) | NON-TECHNICAL (3)
  */
 import { eventsData, getEventsByCategory } from './eventData.js';
 import { openEventModal } from './eventModal.js';
@@ -13,11 +14,12 @@ export function initEventCards() {
   const gridEl = eventsSection.querySelector('.events-grid');
   if (!gridEl) return;
 
-  // Active filter state
-  let currentCategory = 'all';
-  let currentSubCategory = 'all';
+  // Calculate counts
+  const techCount = eventsData.filter(e => e.category === 'technical' && !e.isCoding).length;
+  const codingCount = eventsData.filter(e => e.category === 'coding' || e.isCoding).length;
+  const nonTechCount = eventsData.filter(e => e.category === 'non-technical').length;
 
-  // ── 1. Top-Level Filter Bar ──
+  // ── Top-Level Filter Bar ──
   const filterBar = document.createElement('div');
   filterBar.className = 'event-filter-bar';
   filterBar.innerHTML = `
@@ -25,50 +27,32 @@ export function initEventCards() {
       ALL <span class="filter-count">${eventsData.length}</span>
     </button>
     <button class="filter-btn" data-filter="technical">
-      TECHNICAL <span class="filter-count">${eventsData.filter(e => e.category === 'technical').length}</span>
+      TECHNICAL <span class="filter-count">${techCount}</span>
+    </button>
+    <button class="filter-btn filter-btn-coding" data-filter="coding">
+      CODING <span class="filter-count">${codingCount}</span>
     </button>
     <button class="filter-btn" data-filter="non-technical">
-      NON-TECHNICAL <span class="filter-count">${eventsData.filter(e => e.category === 'non-technical').length}</span>
+      NON-TECHNICAL <span class="filter-count">${nonTechCount}</span>
     </button>
   `;
   headerEl.after(filterBar);
 
-  // ── 2. Technical Secondary Sub-Filter Bar ──
-  const techEvents = eventsData.filter(e => e.category === 'technical');
-  const codingCount = techEvents.filter(e => e.isCoding).length;
-  const otherTechCount = techEvents.filter(e => !e.isCoding).length;
-
-  const subfilterBar = document.createElement('div');
-  subfilterBar.className = 'event-subfilter-bar hidden';
-  subfilterBar.id = 'technical-subfilters';
-  subfilterBar.innerHTML = `
-    <button class="subfilter-btn active" data-subfilter="all">
-      ALL TECHNICAL <span class="subfilter-count">${techEvents.length}</span>
-    </button>
-    <button class="subfilter-btn subfilter-btn-coding" data-subfilter="coding">
-      &lt;/&gt; CODING <span class="subfilter-count">${codingCount}</span>
-    </button>
-    <button class="subfilter-btn" data-subfilter="other">
-      OTHER TECHNICAL <span class="subfilter-count">${otherTechCount}</span>
-    </button>
-  `;
-  filterBar.after(subfilterBar);
-
   function getBadgeLabel(event) {
     if (event.category === 'non-technical') return 'NON-TECHNICAL';
-    if (event.isCoding) return 'CODING';
+    if (event.category === 'coding' || event.isCoding) return 'CODING';
     return 'TECHNICAL';
   }
 
   function getBadgeClass(event) {
     if (event.category === 'non-technical') return 'non-technical';
-    if (event.isCoding) return 'coding';
+    if (event.category === 'coding' || event.isCoding) return 'coding';
     return 'technical';
   }
 
   // ── Render event cards ──
-  function renderCards(category, subCategory) {
-    const events = getEventsByCategory(category, subCategory);
+  function renderCards(category) {
+    const events = getEventsByCategory(category);
     gridEl.innerHTML = '';
 
     events.forEach((event, i) => {
@@ -112,7 +96,7 @@ export function initEventCards() {
     gridEl.querySelectorAll('.register-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const eventId = btn.dataset.eventId;
-        const currentEvent = getEventsByCategory('all').find(ev => ev.id === eventId);
+        const currentEvent = eventsData.find(ev => ev.id === eventId);
         if (!currentEvent || !currentEvent.registerUrl || currentEvent.registerUrl === '#') {
           e.preventDefault();
           e.stopPropagation();
@@ -129,35 +113,10 @@ export function initEventCards() {
     btn.addEventListener('click', () => {
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-
-      currentCategory = btn.dataset.filter;
-      currentSubCategory = 'all';
-
-      // Show subfilters only for TECHNICAL category
-      if (currentCategory === 'technical') {
-        subfilterBar.classList.remove('hidden');
-        // Reset subfilter buttons to ALL TECHNICAL
-        subfilterBar.querySelectorAll('.subfilter-btn').forEach(s => s.classList.remove('active'));
-        subfilterBar.querySelector('[data-subfilter="all"]')?.classList.add('active');
-      } else {
-        subfilterBar.classList.add('hidden');
-      }
-
-      renderCards(currentCategory, currentSubCategory);
-    });
-  });
-
-  // ── Technical Sub-filter button logic ──
-  subfilterBar.querySelectorAll('.subfilter-btn').forEach(sBtn => {
-    sBtn.addEventListener('click', () => {
-      subfilterBar.querySelectorAll('.subfilter-btn').forEach(b => b.classList.remove('active'));
-      sBtn.classList.add('active');
-
-      currentSubCategory = sBtn.dataset.subfilter;
-      renderCards(currentCategory, currentSubCategory);
+      renderCards(btn.dataset.filter);
     });
   });
 
   // Initial render
-  renderCards('all', 'all');
+  renderCards('all');
 }

@@ -1420,6 +1420,12 @@ img {
   background: rgba(177,19,19,0.15);
 }
 
+.filter-btn.filter-btn-coding:hover {
+  border-color: #FFD700;
+  color: #FFD700;
+  background: rgba(255, 215, 0, 0.12);
+}
+
 .filter-btn.active {
   background: var(--red);
   border-color: var(--red);
