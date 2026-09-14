@@ -53,6 +53,7 @@ export const eventsData = [
     id: 'code-relay',
     title: 'Code Relay',
     category: 'technical',
+    isCoding: true,
     icon: '⚡',
     poster: '/posters/technical/code-relay.jpg',
     time: '10:45 AM – 12:25 PM',
@@ -76,6 +77,7 @@ export const eventsData = [
     id: 'bid-2-code',
     title: 'Bid2Code',
     category: 'technical',
+    isCoding: true,
     icon: '🎯',
     poster: '/posters/technical/bid-2-code.jpg',
     time: '10:45 AM – 12:25 PM',
@@ -99,6 +101,7 @@ export const eventsData = [
     id: 'spin-and-sprint',
     title: 'Spin & Sprint',
     category: 'technical',
+    isCoding: true,
     icon: '🎡',
     poster: '/posters/technical/spin-and-sprint.jpg',
     time: '10:45 AM – 12:15 PM',
@@ -122,6 +125,7 @@ export const eventsData = [
     id: 'tech-rewind',
     title: 'Tech Rewind',
     category: 'technical',
+    isCoding: false,
     icon: '⏪',
     poster: '/posters/technical/tech-rewind.jpg',
     time: '10:45 AM – 12:25 PM',
@@ -144,6 +148,7 @@ export const eventsData = [
     id: 'prompt-forge',
     title: 'Prompt Forge',
     category: 'technical',
+    isCoding: false,
     icon: '🤖',
     poster: '/posters/technical/prompt-forge.jpg',
     time: '10:45 AM – 12:25 PM',
@@ -167,6 +172,7 @@ export const eventsData = [
     id: 'scramble-x',
     title: 'ScrambleX',
     category: 'technical',
+    isCoding: true,
     icon: '🧩',
     poster: '/posters/technical/scramble-x.jpg',
     time: '10:45 AM – 12:25 PM',
@@ -192,6 +198,7 @@ export const eventsData = [
     id: 'vibe-rush',
     title: 'Vibe Rush',
     category: 'non-technical',
+    isCoding: false,
     icon: '🎵',
     poster: '/posters/non-technical/vibe-rush.jpg',
     time: '01:25 PM – 03:00 PM',
@@ -218,6 +225,7 @@ export const eventsData = [
     id: 'doomsday',
     title: 'Doomsday: The Final Battle',
     category: 'non-technical',
+    isCoding: false,
     icon: '💀',
     poster: '/posters/non-technical/doomsday.jpg',
     time: '01:25 PM – 03:00 PM',
@@ -245,6 +253,7 @@ export const eventsData = [
     id: 'eye-spy',
     title: 'Eye Spy',
     category: 'non-technical',
+    isCoding: false,
     icon: '👁️',
     poster: '/posters/non-technical/eye-spy.jpg',
     time: '01:25 PM – 03:00 PM',
@@ -269,7 +278,17 @@ export function getEventById(id) {
   return eventsData.find(e => e.id === id) || null;
 }
 
-export function getEventsByCategory(category) {
+export function getEventsByCategory(category = 'all', subCategory = 'all') {
   if (!category || category === 'all') return eventsData;
+  if (category === 'technical') {
+    const techEvents = eventsData.filter(e => e.category === 'technical');
+    if (subCategory === 'coding') {
+      return techEvents.filter(e => e.isCoding);
+    }
+    if (subCategory === 'other') {
+      return techEvents.filter(e => !e.isCoding);
+    }
+    return techEvents;
+  }
   return eventsData.filter(e => e.category === category);
 }
