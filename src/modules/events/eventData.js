@@ -180,6 +180,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: '2nd, 3rd & 4th Year Students',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSdcTjV0JEL0JHKGeT5gEysJZ2mJ7jujNjwE6hVBTgZp9PyzQw/viewform',
     description: 'Scrambled code reconstruction, syntax decoding, and algorithmic pattern solving. 1 round, 45 minutes of intense puzzle-solving.',
     rounds: ['Scrambled Code Challenge (45 mins)'],
     rules: [
@@ -205,6 +206,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '2 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSe-U2G2kby9NAbb8OYMkseKN0Ey1RIOdY4vlfYO34XOwbcYYg/viewform',
     description: 'Music, memory, and fun across 3 exciting rounds — guess songs from imagery, identify tracks from translated lyrics, and test your visual recall.',
     rounds: [
       'Round 1 (Connection): Guess the song from connected imagery cues',
@@ -231,6 +233,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '4 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSe-U2G2kby9NAbb8OYMkseKN0Ey1RIOdY4vlfYO34XOwbcYYg/viewform',
     description: 'Mystery vault challenge. Navigate 3 preliminary stages of puzzles, strategy, and teamwork, then compete in the Final Battle round (5 minutes per qualifying team).',
     rounds: [
       'Prelim Stage 1',
@@ -258,6 +261,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '3 Members per team',
     eligibility: 'All Years',
+    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLScKicuBD56iTEzb-_bdglovJtm-fEqCoMaoRE4I_GnKhL3xWQ/viewform',
     description: 'Test your visual acuity, pattern spotting, and observational memory across 2 intensive elimination rounds. Spot the change and outsmart your opponents.',
     rounds: ['Round 1: Observation', 'Round 2: Elimination'],
     rules: [
