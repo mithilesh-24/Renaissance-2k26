@@ -2165,4 +2165,63 @@ img {
   scroll-margin-top: 80px;
 }
 
+/* ═══════════════════════════════════════════════════
+   SECRETARIES STYLES
+═══════════════════════════════════════════════════ */
+.secretaries-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 420px));
+  gap: clamp(1.2rem, 3vw, 2.2rem);
+  max-width: 900px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.secretary-card {
+  border-color: rgba(246, 219, 90, 0.35);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), 0 0 15px rgba(246, 219, 90, 0.08);
+}
+
+.secretary-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(246, 219, 90, 0.25);
+  transform: translateY(-4px);
+}
+
+.secretary-badge {
+  font-family: var(--font-comic);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.secretary-badge.csea-badge {
+  background: rgba(230, 36, 41, 0.25);
+  color: #FF7777;
+  border: 1px solid rgba(230, 36, 41, 0.7);
+  box-shadow: 0 0 10px rgba(230, 36, 41, 0.2);
+}
+
+.secretary-badge.ccc-badge {
+  background: rgba(147, 51, 234, 0.25);
+  color: #C084FC;
+  border: 1px solid rgba(147, 51, 234, 0.7);
+  box-shadow: 0 0 10px rgba(147, 51, 234, 0.2);
+}
+
+.coordinators-sub-header {
+  margin-top: 4.5rem;
+}
+
+@media (max-width: 680px) {
+  .secretaries-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+}
+
+
 

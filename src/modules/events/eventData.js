@@ -14,14 +14,15 @@ export const eventsData = [
     time: '08:45 AM – 10:45 AM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl: 'https://docs.google.com/forms/u/4/d/e/1FAIpQLSdt_PYI-YJmLqtHwYNFyNdeUbfVRItFDe3Q4jdRb93xPyrK1Q/viewform?usp=publish-editor',
     description: 'Present your cutting-edge research on SIH / SDG problem statements or innovative engineering & tech topics. Standard PPT presentation with Q&A session evaluated by expert judges.',
     rounds: ['PPT Presentation', 'Q&A Session'],
     rules: [
       'Topic must relate to SIH / SDG goals or innovative technology',
       'Maximum 2 members per team',
-      'Presentation time: as allocated by organizers'
+      'Presentation time: as allocated by organizers',
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Uma Maheswari', phone: '6385674622' },
@@ -37,14 +38,15 @@ export const eventsData = [
     time: '08:45 AM – 10:25 AM',
     date: '21st September 2026',
     teamSize: '3 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdAV7I26HVlf0pAL5dvF6SAO5hIN1MaRtSmyx-UNn0LpEj-Gw/viewform',
     description: 'Showcase a working hardware/software model or prototype addressing SIH / SDG goals or novel tech solutions. Live demo and judges evaluation.',
     rounds: ['Live Demo', 'Judges Evaluation'],
     rules: [
       'Working prototype or model required',
       'Must address SIH / SDG goals or novel tech solutions',
-      'Maximum 3 members per team'
+      'Maximum 3 members per team',
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Thirichand K', phone: '9342143166' },
@@ -61,7 +63,7 @@ export const eventsData = [
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '4 Members per team',
-    eligibility: 'Open to CSE',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSdOPYXvAmxeiNqvnSJnx_QOKysLkROwpUq_vNjbQXJBGs8I5A/viewform',
     description: 'Team UI development challenge. Replicate a designated dashboard UI in relay format — teammates switch coding seats at timed intervals.',
     rounds: ['UI Replication Relay'],
@@ -69,7 +71,7 @@ export const eventsData = [
       '4 members per team required',
       'Relay format: switch seats at timed intervals',
       'Replicate the designated UI dashboard',
-      'Open to CSE students only'
+      '2nd and 3rd year CSE students'
     ],
     contacts: [
       { name: 'Sandhiya', phone: '9384979612' },
@@ -136,14 +138,15 @@ export const eventsData = [
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '2 – 3 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSeIRIL78VTH_nHDzaRjvuOxIrhhZ7eRyEtvUmsHTRkPK7WgjA/viewform',
     description: 'Reimagine retro software, vintage UI/UX, and legacy computing systems using modern frontend/backend frameworks. A creative twist on tech history.',
     rounds: ['Retro Tech Reimagination'],
     rules: [
       '2 to 3 members per team',
       'Reimagine a retro tech system with modern tools',
-      'Focus on UI/UX, Frontend & Backend'
+      'Focus on UI/UX, Frontend & Backend',
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Nethrasri', phone: '9524360377' },
@@ -185,7 +188,7 @@ export const eventsData = [
     time: '10:45 AM – 12:25 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
-    eligibility: '2nd, 3rd & 4th Year Students',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSdcTjV0JEL0JHKGeT5gEysJZ2mJ7jujNjwE6hVBTgZp9PyzQw/viewform',
     description: 'Scrambled code reconstruction, syntax decoding, and algorithmic pattern solving. 1 round, 45 minutes of intense puzzle-solving.',
     rounds: ['Scrambled Code Challenge (45 mins)'],
@@ -193,7 +196,7 @@ export const eventsData = [
       '2 members per team',
       '1 round, 45 minutes',
       'Reconstruct scrambled code and decode patterns',
-      '2nd, 3rd, and 4th year students'
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Dharshini N', phone: '7708752476' },
@@ -212,7 +215,7 @@ export const eventsData = [
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '2 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSe-U2G2kby9NAbb8OYMkseKN0Ey1RIOdY4vlfYO34XOwbcYYg/viewform',
     description: 'Music, memory, and fun across 3 exciting rounds — guess songs from imagery, identify tracks from translated lyrics, and test your visual recall.',
     rounds: [
@@ -223,7 +226,7 @@ export const eventsData = [
     rules: [
       '2 members per team',
       '3 rounds of increasing challenge',
-      'All years welcome'
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Hariesh', phone: '7358956474' },
@@ -240,7 +243,7 @@ export const eventsData = [
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '4 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl:'https://forms.gle/NVkRJiqcHHvXx4Mk9',
     description: 'Mystery vault challenge. Navigate 3 preliminary stages of puzzles, strategy, and teamwork, then compete in the Final Battle round (5 minutes per qualifying team).',
     rounds: [
@@ -252,7 +255,8 @@ export const eventsData = [
     rules: [
       '4 members per team',
       '3 preliminary rounds + 1 final round',
-      '5 minutes per qualifying team in the final'
+      '5 minutes per qualifying team in the final',
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Thirichand K', phone: '9342143166' },
@@ -269,14 +273,15 @@ export const eventsData = [
     time: '01:25 PM – 03:00 PM',
     date: '21st September 2026',
     teamSize: '3 Members per team',
-    eligibility: 'All Years',
+    eligibility: '2nd & 3rd Year Students',
     registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLScKicuBD56iTEzb-_bdglovJtm-fEqCoMaoRE4I_GnKhL3xWQ/viewform',
     description: 'Test your visual acuity, pattern spotting, and observational memory across 2 intensive elimination rounds. Spot the change and outsmart your opponents.',
     rounds: ['Round 1: Observation', 'Round 2: Elimination'],
     rules: [
       '3 members per team',
       '2 elimination rounds',
-      'Sharp observation skills required'
+      'Sharp observation skills required',
+      '2nd and 3rd year students'
     ],
     contacts: [
       { name: 'Durga B', phone: '8825911558' },
