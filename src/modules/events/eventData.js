@@ -233,7 +233,7 @@ export const eventsData = [
     date: '21st September 2026',
     teamSize: '4 Members per team',
     eligibility: 'All Years',
-    registerUrl:'https://docs.google.com/forms/d/e/1FAIpQLSe-U2G2kby9NAbb8OYMkseKN0Ey1RIOdY4vlfYO34XOwbcYYg/viewform',
+    registerUrl:'https://forms.gle/NVkRJiqcHHvXx4Mk9',
     description: 'Mystery vault challenge. Navigate 3 preliminary stages of puzzles, strategy, and teamwork, then compete in the Final Battle round (5 minutes per qualifying team).',
     rounds: [
       'Prelim Stage 1',
