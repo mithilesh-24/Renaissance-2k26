@@ -4,30 +4,26 @@ import { runIntro } from './modules/intro.js';
 import { initCinematic } from './modules/cinematic.js';
 import { initCountdown } from './modules/countdown.js';
 import { initPhase2Interactions } from './modules/about.js';
+import { initEventCards } from './modules/events/eventCards.js';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { initNavigation } from './modules/navigation.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
   const heroVideo = document.getElementById('hero-video');
   const loader = document.getElementById('loader');
-  const cinematicWrapper = document.getElementById('cinematic-wrapper');
 
-  // Initialize countdown timer ticker & Phase 2 interactions
+  // Initialize navigation, countdown timer ticker & Phase 2 interactions
+  initNavigation();
   initCountdown();
   initPhase2Interactions();
+  initEventCards();
 
   // Initial GSAP setup
   gsap.set('#hero-tagline', { y: 20 });
-
-  // Window resize handler for cinematic wrapper
-  window.addEventListener('resize', () => {
-    if (document.documentElement.classList.contains('unlocked')) {
-      cinematicWrapper.style.height = `${window.innerHeight * 3}px`;
-      ScrollTrigger.refresh();
-    }
-  });
 
   // Kick off loader
   runLoader((loaderEl) => {

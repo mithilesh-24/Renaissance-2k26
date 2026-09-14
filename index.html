@@ -42,6 +42,54 @@
   </div>
 
   <!-- ══════════════════════════════════════════════════
+       MAIN NAVBAR (STATIC, ALWAYS VISIBLE ACROSS SITE)
+  ══════════════════════════════════════════════════ -->
+  <header id="main-navbar" aria-label="Main Navigation">
+    <div class="nav-brand">
+      <a href="#intro" class="nav-brand-link" aria-label="Renaissance 2K26 Home">
+        <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26 Logo" class="nav-logo" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="nav-links" id="desktop-nav-links">
+      <a href="#intro" class="nav-item">Home</a>
+      <a href="#about" class="nav-item">About Us</a>
+      <a href="#events" class="nav-item">Events</a>
+      <a href="#contact" class="nav-item">Contact Us</a>
+    </nav>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button id="nav-hamburger" class="nav-hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </header>
+
+  <!-- Spider-Verse Mobile Navigation Drawer -->
+  <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+  <aside id="mobile-nav-drawer" class="mobile-nav-drawer" aria-label="Mobile Navigation Menu" aria-hidden="true">
+    <div class="mobile-drawer-header">
+      <div class="mobile-drawer-brand">
+        <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26" class="drawer-logo" />
+        <span class="drawer-title">RENAISSANCE 2K26</span>
+      </div>
+      <button id="mobile-drawer-close" class="mobile-drawer-close" aria-label="Close menu">✕</button>
+    </div>
+    <nav class="mobile-drawer-links">
+      <a href="#intro" class="mobile-nav-item"><span class="nav-num">01</span><span class="nav-label">HOME</span></a>
+      <a href="#about" class="mobile-nav-item"><span class="nav-num">02</span><span class="nav-label">ABOUT US</span></a>
+      <a href="#events" class="mobile-nav-item"><span class="nav-num">03</span><span class="nav-label">EVENTS</span></a>
+      <a href="#contact" class="mobile-nav-item"><span class="nav-num">04</span><span class="nav-label">CONTACT US</span></a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <span class="drawer-sub">KONGU ENGINEERING COLLEGE</span>
+      <span class="drawer-dept">DEPARTMENT OF CSE</span>
+    </div>
+  </aside>
+
+  <!-- ══════════════════════════════════════════════════
        ② PRESENTS INTRO
   ══════════════════════════════════════════════════ -->
   <div id="intro" aria-label="Symposium Introduction">
@@ -90,19 +138,6 @@
   <div id="cinematic-wrapper">
     <div id="cinematic-sticky">
 
-      <!-- ① Main Navbar / Menu Bar -->
-      <header id="main-navbar" aria-label="Main Navigation">
-        <div class="nav-brand">
-          <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26 Logo" class="nav-logo" />
-        </div>
-        <nav class="nav-links">
-          <a href="#intro" class="nav-item">Home</a>
-          <a href="#about" class="nav-item">About Us</a>
-          <a href="#events" class="nav-item">Events</a>
-          <a href="#contact" class="nav-item">Contact Us</a>
-        </nav>
-      </header>
-
       <!-- HUD corner brackets -->
       <div class="hud-corner hud-corner--tl" aria-hidden="true"></div>
       <div class="hud-corner hud-corner--tr" aria-hidden="true"></div>
@@ -114,9 +149,7 @@
 
       <!-- Video container -->
       <div id="video-container">
-        <video id="hero-video" muted playsinline preload="auto" aria-label="Spider-Man Anti-Gravity Cinematic">
-          <source src="/Phase_1/new_upscale.mp4" type="video/mp4" />
-          <source src="/Phase 1/new upscale.mp4" type="video/mp4" />
+        <video id="hero-video" muted playsinline webkit-playsinline preload="auto" aria-label="Spider-Man Anti-Gravity Cinematic">
           <source src="/Phase 1/upscaled-video.mp4" type="video/mp4" />
         </video>
 
@@ -277,96 +310,14 @@
     </div>
 
     <div class="events-grid">
-      <!-- Event 1: Paper Presentation -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge technical">TECHNICAL</div>
-        <div class="event-icon">📄</div>
-        <h3 class="card-title">PAPER PRESENTATION</h3>
-        <p class="card-body">
-          Present your cutting-edge technical research, innovative web technologies, and AI breakthroughs to expert judges.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 09:30 AM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
-
-      <!-- Event 2: Code Odyssey -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge technical">TECHNICAL</div>
-        <div class="event-icon">💻</div>
-        <h3 class="card-title">CODE ODYSSEY</h3>
-        <p class="card-body">
-          Race against time in algorithmic problem-solving, bug hunting, and real-time coding sprints.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 11:00 AM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
-
-      <!-- Event 3: Web Weavers -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge technical">TECHNICAL</div>
-        <div class="event-icon">🕸️</div>
-        <h3 class="card-title">WEB WEAVERS</h3>
-        <p class="card-body">
-          Craft high-performance, dynamic UI/UX web designs using modern CSS animations and glassmorphism.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 01:30 PM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
-
-      <!-- Event 4: Quiz-O-Mania -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge non-technical">NON-TECHNICAL</div>
-        <div class="event-icon">🧠</div>
-        <h3 class="card-title">QUIZ-O-MANIA</h3>
-        <p class="card-body">
-          Test your wits across tech trivia, pop culture, Spider-Man lore, and rapid-fire buzzer rounds.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 10:30 AM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
-
-      <!-- Event 5: Spider-Sense Gaming -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge non-technical">NON-TECHNICAL</div>
-        <div class="event-icon">🎮</div>
-        <h3 class="card-title">SPIDER-SENSE GAMING</h3>
-        <p class="card-body">
-          Compete in high-octane LAN battles and esports tournaments to claim the ultimate championship trophy.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 02:00 PM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
-
-      <!-- Event 6: Mystery Marvel -->
-      <article class="p2-card event-card" tabindex="0">
-        <div class="event-badge non-technical">NON-TECHNICAL</div>
-        <div class="event-icon">🎁</div>
-        <h3 class="card-title">MYSTERY MARVEL</h3>
-        <p class="card-body">
-          A surprise team strategy and fun puzzle challenge designed to test your collaboration under pressure.
-        </p>
-        <div class="event-footer">
-          <span class="event-time">⏰ 03:30 PM</span>
-          <button class="event-btn">Register Event</button>
-        </div>
-      </article>
+      <!-- Dynamically rendered by eventCards.js -->
     </div>
   </section>
 
   <!-- ══════════════════════════════════════════════════
        FOOTER SECTION
   ══════════════════════════════════════════════════ -->
-  <footer id="main-footer">
+  <footer id="contact" class="main-footer">
     <div class="footer-content">
       <img src="Phase 1/Codex Image Sep 13, 2026, 08_16_10 AM.png" alt="Renaissance 2K26" class="footer-logo" />
       <p class="footer-text">RENAISSANCE 2K26 · DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING</p>

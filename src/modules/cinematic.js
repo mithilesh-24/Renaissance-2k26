@@ -23,38 +23,53 @@ export function buildScrollTimeline(heroVideo) {
   const cinematicWrapper = document.getElementById('cinematic-wrapper');
   const cinematicSticky  = document.getElementById('cinematic-sticky');
 
-  const mainNavbar       = document.getElementById('main-navbar');
   const countdownSection = document.getElementById('event-countdown-section');
   const vidDuration    = (heroVideo.duration && !isNaN(heroVideo.duration)) ? heroVideo.duration : 8;
-  const PIXELS_PER_SEC = 200;
-  // Pin for video duration + 2 extra viewport-heights so logo stays visible after end
-  const POST_END_PX    = window.innerHeight * 2.5;
-  const pinLength      = Math.max(vidDuration * PIXELS_PER_SEC, window.innerHeight * 2) + POST_END_PX;
+  const PIXELS_PER_SEC = 180;
+  // Pin for video duration + 1 extra viewport-height so logo/countdown stay visible briefly
+  const POST_END_PX    = window.innerHeight * 1.0;
+  const pinLength      = Math.max(vidDuration * PIXELS_PER_SEC, window.innerHeight * 1.5) + POST_END_PX;
 
   cinematicWrapper.style.height = `${window.innerHeight + pinLength}px`;
 
   let duringVideoTL = null;
   let endedHandled  = false;
+  let fallbackTimer = null;
 
-  /* ── safely play video ── */
+  /* ── safely play video with mobile autoplay fallback ── */
   function playVideo() {
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.setAttribute('playsinline', '');
+    heroVideo.setAttribute('webkit-playsinline', '');
+    
     const p = heroVideo.play();
     if (p !== undefined) {
-      p.catch((err) => console.warn('Video play failed:', err));
+      p.catch((err) => {
+        console.warn('Video play failed or blocked by mobile policy:', err);
+        // Fallback for mobile devices blocking autoplay: reveal hero smoothly
+        setTimeout(() => revealLogo(), 1200);
+      });
     }
+
+    // Safety timeout: ensure logo reveals even if mobile stalls on video end event
+    clearTimeout(fallbackTimer);
+    fallbackTimer = setTimeout(() => {
+      if (!endedHandled) revealLogo();
+    }, (vidDuration + 2) * 1000);
   }
 
-  /* ── logo reveal — fires exactly when video ends ── */
+  /* ── logo reveal — fires exactly when video ends or on safe timeout ── */
   function revealLogo() {
     if (endedHandled) return;
     endedHandled = true;
+    clearTimeout(fallbackTimer);
 
     // Quick blur flash
     blurOverlay.classList.add('active');
     setTimeout(() => blurOverlay.classList.remove('active'), 500);
 
-    // Reveal Navbar & Countdown Timer Section
-    if (mainNavbar) mainNavbar.classList.add('revealed');
+    // Reveal Countdown Timer Section (Navbar is static and always visible)
     if (countdownSection) countdownSection.classList.add('revealed');
 
     // HUD corners snap in
@@ -93,7 +108,6 @@ export function buildScrollTimeline(heroVideo) {
     endedHandled = false;
 
     // Reset all overlays to hidden state
-    if (mainNavbar) mainNavbar.classList.remove('revealed');
     if (countdownSection) countdownSection.classList.remove('revealed');
     gsap.set(heroLogoWrap,  { opacity: 0, y: 140, scale: 0.75 });
     if (heroTagline) gsap.set(heroTagline, { opacity: 0, y: 28 });
@@ -169,7 +183,6 @@ export function buildScrollTimeline(heroVideo) {
     gsap.set(webLinesSVG,   { opacity: 0 });
     gsap.set(scanLine,      { opacity: 0 });
     if (scanLine) scanLine.classList.remove('active');
-    if (mainNavbar) mainNavbar.classList.remove('revealed');
     if (countdownSection) countdownSection.classList.remove('revealed');
     gsap.set(Array.from(hudCorners), { opacity: 0 });
     heroLogoWrap.classList.remove('floating');
@@ -227,4 +240,24 @@ export function initCinematic(heroVideo) {
   heroVideo.addEventListener('loadedmetadata', () => {
     ScrollTrigger.refresh();
   }, { once: true });
+
+  // Handle mobile orientation changes and window resizing cleanly
+  const handleResize = () => {
+    if (document.documentElement.classList.contains('unlocked')) {
+      const vidDuration = (heroVideo.duration && !isNaN(heroVideo.duration)) ? heroVideo.duration : 8;
+      const PIXELS_PER_SEC = 180;
+      const POST_END_PX = window.innerHeight * 1.0;
+      const pinLength = Math.max(vidDuration * PIXELS_PER_SEC, window.innerHeight * 1.5) + POST_END_PX;
+      const cinematicWrapper = document.getElementById('cinematic-wrapper');
+      if (cinematicWrapper) {
+        cinematicWrapper.style.height = `${window.innerHeight + pinLength}px`;
+      }
+      ScrollTrigger.refresh();
+    }
+  };
+
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('orientationchange', () => {
+    setTimeout(handleResize, 200);
+  });
 }
