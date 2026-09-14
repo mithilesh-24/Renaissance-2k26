@@ -556,11 +556,11 @@ img {
   align-items: center;
   justify-content: space-between;
   padding: 0 clamp(1rem, 3.5vw, 3rem);
-  background: linear-gradient(180deg, #FFF9D6 0%, #FFE895 85%, #E6C860 100%);
+  background: linear-gradient(180deg, #4A4E57 0%, #32363E 85%, #23262D 100%);
   border-top: 3.5px solid #1A1A1A;
   border-bottom: 4px solid var(--blue);
   box-shadow:
-    0 6px 25px rgba(43,55,132,0.5),
+    0 6px 25px rgba(0,0,0,0.5),
     0 4px 15px rgba(0,0,0,0.6);
   opacity: 1;
   transform: translateY(0);
