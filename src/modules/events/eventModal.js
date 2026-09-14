@@ -84,6 +84,11 @@ export function openEventModal(eventId) {
 
   if (!modalEl) createModalDOM();
 
+  // Reset scroll position to top for mobile & desktop
+  modalEl.scrollTop = 0;
+  const detailsEl = modalEl.querySelector('.modal-details');
+  if (detailsEl) detailsEl.scrollTop = 0;
+
   // Populate content
   const badge = modalEl.querySelector('.modal-badge');
   badge.textContent = event.category === 'technical' ? 'TECHNICAL' : 'NON-TECHNICAL';
